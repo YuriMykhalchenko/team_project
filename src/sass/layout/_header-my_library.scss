@@ -1,0 +1,135 @@
+.header-library {
+  padding-top: 40px;
+  padding-bottom: 44px;
+  max-width: 100%;
+  height: 230px;
+  margin: 0 auto;
+
+  background-image: url('../images/imagesYM/mobile.jpg');
+  background-size: cover;
+
+  @include retina {
+    background-image: url('../images/imagesYM/mobile-2x.jpg');
+  }
+
+  @include tablet {
+    padding-top: 40px;
+    padding-bottom: 44px;
+    // max-width: 768px;
+    height: 216px;
+
+    background-image: url('../images/imagesYM/tablet.jpg');
+
+    @include retina {
+      background-image: url('../images/imagesYM/tablet-2x.jpg');
+    }
+  }
+
+  @include desktop {
+    padding-top: 40px;
+    padding-bottom: 44px;
+    // max-width: 1280px;
+    height: 216px;
+
+    background-image: url('../images/imagesYM/desktop.jpg');
+
+    @include retina {
+      background-image: url('../images/imagesYM/desktop-2x.jpg');
+    }
+  }
+}
+
+.header__container {
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  @include tablet {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+.header__nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 17px;
+}
+
+.site-nav {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.site-nav__link {
+  color: currentColor;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  text-transform: uppercase;
+
+  color: $white;
+
+  transition-property: color;
+  transition-duration: $time-cubic;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.logo__link {
+  display: flex;
+  align-items: center;
+  color: $white;
+  transition-property: color;
+  transition-duration: $time-cubic;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+
+  &:hover {
+    color: $orange;
+  }
+}
+
+.site-nav__link--current::after {
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+
+  content: '';
+  width: 35px;
+  height: 3px;
+  background-color: $red;
+}
+
+.site-nav__link--no-current::after {
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+
+  content: '';
+  width: 69px;
+  height: 3px;
+  background-color: $orange;
+
+  transition-property: all;
+  transition-duration: $time-cubic;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+
+  transform: scaleX(0);
+}
+
+.site-nav__link--no-current:hover.site-nav__link--no-current:hover::after,
+.site-nav__link--no-current:focus.site-nav__link--no-current:hover::after {
+  transform: scaleX(1);
+}
+
+.site-nav__link--no-current:hover,
+.site-nav__link--no-current:focus {
+  color: $orange;
+}
+
+.site-nav__item {
+  position: relative;
+}
